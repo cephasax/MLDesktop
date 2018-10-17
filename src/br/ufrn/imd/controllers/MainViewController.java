@@ -99,13 +99,13 @@ public class MainViewController {
 		this.modelFile = fileChooser.showOpenDialog(this.main.getPrimaryStage());
 		if (modelFile != null) {
 			txt_file_name.setText(modelFile.getAbsolutePath());
-			txt_debug.setText("... modelo escolhido com sucesso");
+			txt_debug.setText("... model chosen successfully");
 			btn_load.setDisable(false);
 		}
 
 		else {
 			txt_file_name.setText("");
-			txt_debug.setText("... modelo não foi escolhido");
+			txt_debug.setText("... model wasn't chosen");
 			btn_load.setDisable(true);
 		}
 	}
@@ -114,7 +114,7 @@ public class MainViewController {
     public void loadModel(ActionEvent event) {
 		 this.mlm = new MachineLearningModel(modelFile.getAbsolutePath());
 		 mlm.loadModel();
-		 txt_debug.setText("... modelo carregado com sucesso");
+		 txt_debug.setText("... model loaded successfully");
     }
 
     @FXML
@@ -125,7 +125,7 @@ public class MainViewController {
 		this.dataFile = fileChooser.showOpenDialog(this.main.getPrimaryStage());
 		if (dataFile != null) {
 			txt_file_name.setText(dataFile.getAbsolutePath());
-			txt_debug.setText("carregando dados...");
+			txt_debug.setText("loading data...");
 			this.data = new ArrayList<Diabets>();
 			try {
 				data = (ArrayList<Diabets>) DiabetsParser.csvToDiabetsData(dataFile.getAbsolutePath());
@@ -133,10 +133,10 @@ public class MainViewController {
 
 				populateTable();
 
-				txt_debug.setText("dados carregados com sucesso");
+				txt_debug.setText("data loaded successfully");
 				btn_classify.setDisable(false);
 			} catch (IOException e) {
-				txt_debug.setText("não foi possível carregar os dados :(");
+				txt_debug.setText("unable to load data :(");
 				e.printStackTrace();
 			}
 		}
@@ -153,7 +153,7 @@ public class MainViewController {
 		observableList.clear();
 		observableList = FXCollections.observableArrayList(DiabetsItem.diabetsItensFromDiabetsList(data));
 		tbl_data.setItems(observableList);
-		txt_debug.setText("Dados classificados com o modelo de ML carregado :)");
+		txt_debug.setText("Data classified with the loaded ML model :)");
 	}
 
 	private void populateTable() {
