@@ -21,7 +21,7 @@ public class MachineLearningModel {
 			this.cls = (Classifier) SerializationHelper.read(modelName);
 
 		} catch (Exception e) {
-			System.out.println("Nao foi possivel carregar o modelo - motivo: \n");
+			System.out.println("Unable to load model - reason: \n");
 			e.printStackTrace();
 		}
 	}
