@@ -9,7 +9,7 @@ public class DiabetsController {
 	public DiabetsController(MachineLearningModel mlm) {
 		this.mlm = mlm;
 	}
-	
+
 	public Diabets classifydiabets(Diabets d) {
 		Diabets diabets = d;
 
@@ -18,7 +18,7 @@ public class DiabetsController {
 
 		return diabets;
 	}
-	
+
 	private String classifyDiabets(Diabets diabets) {
 		DiabetsUtils iu = new DiabetsUtils();
 

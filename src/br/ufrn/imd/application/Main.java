@@ -13,7 +13,7 @@ public class Main extends Application {
 
 	private Stage primaryStage;
 	public AnchorPane rootLayout;
-	
+
 	@Override
 	public void start(Stage primaryStage) {
 
@@ -24,7 +24,6 @@ public class Main extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public static void main(String[] args) {
@@ -53,7 +52,7 @@ public class Main extends Application {
 	public void setPrimaryStage(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
-	
-	
-	
+
+
+
 }

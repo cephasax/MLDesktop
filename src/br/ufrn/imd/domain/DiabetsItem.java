@@ -1,126 +1,120 @@
 package br.ufrn.imd.domain;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 //SOME S*** HERE, but I needed to solve problem fastly
 public class DiabetsItem {
 
-	private int id;
-	private boolean option = false;
-	private double preg;
-	private double plas;
-	private double pres;
-	private double skin;
-	private double insu;
-	private double mass;
-	private double pedi;
-	private double age;
-	private String diabetsClass;
+	private SimpleDoubleProperty preg;
+	private SimpleDoubleProperty plas;
+	private SimpleDoubleProperty pres;
+	private SimpleDoubleProperty skin;
+	private SimpleDoubleProperty insu;
+	private SimpleDoubleProperty mass;
+	private SimpleDoubleProperty pedi;
+	private SimpleDoubleProperty age;
+	private SimpleStringProperty diabetsClass;
 
-	public int getId() {
-		return id;
+	public DiabetsItem() {
+		this.preg = new SimpleDoubleProperty();
+		this.plas = new SimpleDoubleProperty();
+		this.pres = new SimpleDoubleProperty();
+		this.skin = new SimpleDoubleProperty();
+		this.insu = new SimpleDoubleProperty();
+		this.mass = new SimpleDoubleProperty();
+		this.pedi = new SimpleDoubleProperty();
+		this.age = new SimpleDoubleProperty();
+		this.diabetsClass = new SimpleStringProperty("?");
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public boolean isOption() {
-		return option;
-	}
-
-	public void setOption(boolean option) {
-		this.option = option;
-	}
-
-	public double getPreg() {
-		return preg;
+	public Double getPreg() {
+		return preg.get();
 	}
 
 	public void setPreg(double preg) {
-		this.preg = preg;
+		this.preg.set(preg);
 	}
 
-	public double getPlas() {
-		return plas;
+	public Double getPlas() {
+		return plas.get();
 	}
 
 	public void setPlas(double plas) {
-		this.plas = plas;
+		this.plas.set(plas);
 	}
 
-	public double getPres() {
-		return pres;
+	public Double getPres() {
+		return pres.get();
 	}
 
 	public void setPres(double pres) {
-		this.pres = pres;
+		this.pres.set(pres);
 	}
 
-	public double getSkin() {
-		return skin;
+	public Double getSkin() {
+		return skin.get();
 	}
 
 	public void setSkin(double skin) {
-		this.skin = skin;
+		this.skin.set(skin);
 	}
 
-	public double getInsu() {
-		return insu;
+	public Double getInsu() {
+		return insu.get();
 	}
 
 	public void setInsu(double insu) {
-		this.insu = insu;
+		this.insu.set(insu);
 	}
 
-	public double getMass() {
-		return mass;
+	public Double getMass() {
+		return mass.get();
 	}
 
 	public void setMass(double mass) {
-		this.mass = mass;
+		this.mass.set(mass);
 	}
 
-	public double getPedi() {
-		return pedi;
+	public Double getPedi() {
+		return pedi.get();
 	}
 
 	public void setPedi(double pedi) {
-		this.pedi = pedi;
+		this.pedi.set(pedi);
 	}
 
-	public double getAge() {
-		return age;
+	public Double getAge() {
+		return age.get();
 	}
 
 	public void setAge(double age) {
-		this.age = age;
+		this.age.set(age);
 	}
 
 	public String getDiabetsClass() {
-		return diabetsClass;
+		return diabetsClass.get();
 	}
 
 	public void setDiabetsClass(String diabetsClass) {
-		this.diabetsClass = diabetsClass;
+		this.diabetsClass.set(diabetsClass);
 	}
 
-	public static List<DiabetsItem> diabetsItensFromDiabetsList(ArrayList<Diabets> data) {
+	public static ArrayList<DiabetsItem> diabetsItensFromDiabetsList(ArrayList<Diabets> data) {
 		ArrayList<DiabetsItem> dt = new ArrayList<DiabetsItem>();
 		for (int i = 0; i < data.size(); i++) {
 			DiabetsItem dItem = new DiabetsItem();
-			dItem.setId(i);
-			dItem.setOption(false);
-			dItem.setPreg(data.get(i).getPreg());
-			dItem.setPlas(data.get(i).getPlas());
-			dItem.setPres(data.get(i).getPres());
-			dItem.setSkin(data.get(i).getSkin());
-			dItem.setInsu(data.get(i).getInsu());
-			dItem.setMass(data.get(i).getMass());
-			dItem.setPedi(data.get(i).getPedi());
-			dItem.setAge(data.get(i).getAge());
-			dItem.setDiabetsClass(data.get(i).getDiabetsClass());
+			dItem.preg.setValue(data.get(i).getPreg());
+			dItem.plas.setValue(data.get(i).getPlas());
+			dItem.pres.setValue(data.get(i).getPres());
+			dItem.skin.setValue(data.get(i).getSkin());
+			dItem.insu.setValue(data.get(i).getInsu());
+			dItem.mass.setValue(data.get(i).getMass());
+			dItem.pedi.setValue(data.get(i).getPedi());
+			dItem.age.setValue(data.get(i).getAge());
+			dItem.diabetsClass.setValue(data.get(i).getDiabetsClass());
 			dt.add(dItem);
 		}
 		return dt;
