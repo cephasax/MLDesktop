@@ -1,10 +1,4 @@
-package br.ufrn.imd.tutorial;
-
-
-
-import javax.annotation.PostConstruct;
-
-import org.springframework.stereotype.Component;
+package br.ufrn.imd.domain;
 
 import weka.classifiers.Classifier;
 import weka.core.SerializationHelper;
@@ -13,23 +7,23 @@ import weka.core.SerializationHelper;
  * @author cephas
  *
  */
-@Component
 public class MachineLearningModel {
 
 	private Classifier cls;
 	private String modelName;
-		
-	@PostConstruct
+
+	public MachineLearningModel(String fileName) {
+		this.modelName = new String(fileName);
+	}
+	
 	public void loadModel() {
-		//choose and load model
-		this.modelName = new String("C:\\Users\\Cephas\\EclipseWork\\learnWork\\TutorialML\\src\\main\\resources\\diabets_modelo.model");
 		try {
 			this.cls = (Classifier) SerializationHelper.read(modelName);
-			
+
 		} catch (Exception e) {
 			System.out.println("Nao foi possivel carregar o modelo - motivo: \n");
 			e.printStackTrace();
-		}		
+		}
 	}
 
 	public Classifier getCls() {

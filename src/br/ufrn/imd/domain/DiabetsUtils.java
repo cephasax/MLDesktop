@@ -1,4 +1,4 @@
-package br.ufrn.imd.tutorial;
+package br.ufrn.imd.domain;
 
 import java.util.ArrayList;
 import java.util.List;

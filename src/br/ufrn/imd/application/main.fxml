@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchor_main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controllers.MainViewController">
+   <children>
+      <Button fx:id="btn_choose" layoutX="595.0" layoutY="14.0" mnemonicParsing="false" onAction="#chooseModelFile" prefHeight="25.0" prefWidth="136.0" text="Choose .model file" textAlignment="CENTER" />
+      <Button fx:id="btn_load" disable="true" layoutX="745.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadModel" prefHeight="25.0" prefWidth="136.0" text="Load model" textAlignment="CENTER" />
+      <Text fx:id="txt_file_name" layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" text="model_name" textAlignment="CENTER" wrappingWidth="570.13671875">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <TableView fx:id="tbl_data" editable="true" layoutY="57.0" prefHeight="380.0" prefWidth="895.0">
+        <columns>
+            <TableColumn fx:id="col_option" prefWidth="76.0" resizable="false" text="option">
+               <graphic>
+                  <CheckBox fx:id="checkbox_option" mnemonicParsing="false" onAction="#selectColumns" />
+               </graphic></TableColumn>
+          <TableColumn fx:id="col_preg" text="preg" />
+          <TableColumn fx:id="col_plas" text="plas" />
+            <TableColumn fx:id="col_pres" text="pres" />
+            <TableColumn fx:id="col_skin" text="skin" />
+            <TableColumn fx:id="col_insu" text="insu" />
+            <TableColumn fx:id="col_mass" text="mass" />
+            <TableColumn fx:id="col_pedi" text="pedi" />
+            <TableColumn fx:id="col_age" text="age" />
+            <TableColumn fx:id="col_class" minWidth="0.0" prefWidth="205.0" text="class" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_classify" disable="true" layoutX="745.0" layoutY="448.0" mnemonicParsing="false" onAction="#classifyData" prefHeight="25.0" prefWidth="136.0" text="Classify data" />
+      <Text fx:id="txt_debug" layoutX="14.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="570.1367069780827" />
+      <Button fx:id="btn_load_data" layoutX="595.0" layoutY="448.0" mnemonicParsing="false" onAction="#loadData" prefHeight="25.0" prefWidth="136.0" text="Load data" />
+   </children>
+</AnchorPane>

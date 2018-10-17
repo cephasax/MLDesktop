@@ -13,7 +13,7 @@ public class Main extends Application {
 
 	private Stage primaryStage;
 	public AnchorPane rootLayout;
-
+	
 	@Override
 	public void start(Stage primaryStage) {
 
@@ -34,7 +34,7 @@ public class Main extends Application {
 	public void showMainView() throws IOException {
 		// Carrega a tela principal
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("../view/main.fxml"));
+		loader.setLocation(Main.class.getResource("main.fxml"));
 		rootLayout = (AnchorPane) loader.load();
 
 		// Mostra a cena
@@ -44,6 +44,16 @@ public class Main extends Application {
 
 		MainViewController controller = loader.getController();
 		controller.setMainApp(this);
-
 	}
+
+	public Stage getPrimaryStage() {
+		return primaryStage;
+	}
+
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+	}
+	
+	
+	
 }
